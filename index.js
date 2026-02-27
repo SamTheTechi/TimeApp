@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const app = express();
 
@@ -30,6 +31,10 @@ app.get("/getTime", async (req, res) => {
     console.error(`Some thing went wrong: ${error}`);
     return res.status(500).json({ error: "failed to fetch time" });
   }
+});
+
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
 });
 
 app.listen(5000, () => {

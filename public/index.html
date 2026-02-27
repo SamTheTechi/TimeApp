@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiveTime</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <div class="box">
+    <div class="upperBox">
+      <h2>Choose your location</h2>
+      <form class="location">
+        <div>
+          <label id="text2" for="city">&nbsp; &nbsp; City &nbsp; &nbsp; &nbsp;</label>
+          <input id="city" name="city" type="text" placeholder="e.g. Kolkata" />
+        </div>
+        <div>
+          <label for="timeZone">Timezone</label>
+          <input id="timeZone" name="timeZone" type="text" placeholder="e.g. Asia" />
+        </div>
+      </form>
+    </div>
+    <div class="middleBox">
+      <div class="emoji">☀️</div>
+      <div class="displayTime">
+        <div class="Timer">00:00:00</div>
+      </div>
+    </div>
+    <div class="lowerBox">
+      <input type="button" value="Enter" id="submitButton" class="button" />
+    </div>
+  </div>
+  <footer class="hyperlink">
+    <a href="#">Made With Love By Sameer Gupta</a>
+  </footer>
+  <script src="index.js"></script>
+</body>
+
+</html>

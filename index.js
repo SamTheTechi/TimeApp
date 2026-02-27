@@ -2,8 +2,9 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
+const publicDir = path.join(__dirname, "public");
 
-app.use(express.static("./public"));
+app.use(express.static(publicDir));
 
 app.get("/getTime", async (req, res) => {
   try {
@@ -34,9 +35,13 @@ app.get("/getTime", async (req, res) => {
 });
 
 app.get("*", (_, res) => {
-  res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+  res.sendFile(path.join(publicDir, "index.html"));
 });
 
-app.listen(5000, () => {
-  console.log("Server is Up and Runing");
-});
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  app.listen(5000, () => {
+    console.log("Server is Up and Runing");
+  });
+}
